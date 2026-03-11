@@ -63,7 +63,7 @@ a {
   background: white;
   border-radius: 18px;
   padding: 40px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.10);
 }
 
 .hero h1,
@@ -141,6 +141,7 @@ a {
 
 .contact-form button:hover {
   background: #1d4ed8;
+  transform: translateY(-1px);
 }
 
 .footer {
