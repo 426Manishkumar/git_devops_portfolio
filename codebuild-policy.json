@@ -1,0 +1,41 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "CloudWatchLogsPolicy",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "S3ArtifactAccess",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:GetObjectVersion",
+        "s3:PutObject",
+        "s3:GetBucketAcl",
+        "s3:GetBucketLocation"
+      ],
+      "Resource": [
+        "arn:aws:s3:::git-devops-portfolio-artifacts-690317531578-ap-south-1",
+        "arn:aws:s3:::git-devops-portfolio-artifacts-690317531578-ap-south-1/*"
+      ]
+    },
+    {
+      "Sid": "ECRPullPolicy",
+      "Effect": "Allow",
+      "Action": [
+        "ecr:BatchCheckLayerAvailability",
+        "ecr:GetDownloadUrlForLayer",
+        "ecr:BatchGetImage",
+        "ecr:GetAuthorizationToken"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DebugUseConnectionCurrent",
+      "Effect": "Allow",
+      "Action": [
+        "codeconnections:UseConnection"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "DebugUseConnectionLegacy",
+      "Effect": "Allow",
+      "Action": [
+        "codestar-connections:UseConnection"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

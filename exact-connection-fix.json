@@ -1,0 +1,21 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "UseConnectionCurrent",
+      "Effect": "Allow",
+      "Action": [
+        "codeconnections:UseConnection"
+      ],
+      "Resource": "arn:aws:codeconnections:ap-south-1:690317531578:connection/efab41ec-0faa-490d-b6be-bafb162b8490"
+    },
+    {
+      "Sid": "UseConnectionLegacy",
+      "Effect": "Allow",
+      "Action": [
+        "codestar-connections:UseConnection"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

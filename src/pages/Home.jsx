@@ -2,7 +2,7 @@ export default function Home() {
     return (
       <section className="hero page-card">
         <p className="tag">Frontend Project</p>
-        <h1>Welcome to my devops Portfolio</h1>
+        <h1>Welcome to my automated devops Portfolio</h1>
         <p className="subtitle">
           This project demonstrates React development, GitHub workflow,
           feature branching, pull requests and automatic AWS deployment.

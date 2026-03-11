@@ -1,0 +1,91 @@
+{
+  "pipeline": {
+    "name": "git-devops-portfolio-pipeline",
+    "roleArn": "arn:aws:iam::690317531578:role/CodePipelinePortfolioRole",
+    "artifactStore": {
+      "type": "S3",
+      "location": "git-devops-portfolio-artifacts-690317531578-ap-south-1"
+    },
+    "stages": [
+      {
+        "name": "Source",
+        "actions": [
+          {
+            "name": "ApplicationSource",
+            "actionTypeId": {
+              "category": "Source",
+              "owner": "AWS",
+              "provider": "CodeStarSourceConnection",
+              "version": "1"
+            },
+            "outputArtifacts": [
+              {
+                "name": "SourceArtifact"
+              }
+            ],
+            "configuration": {
+              "ConnectionArn": "arn:aws:codeconnections:ap-south-1:690317531578:connection/efab41ec-0faa-490d-b6be-bafb162b8490",
+              "FullRepositoryId": "426Manishkumar/git_devops_portfolio",
+              "BranchName": "main",
+              "OutputArtifactFormat": "CODE_ZIP"
+            },
+            "runOrder": 1
+          }
+        ]
+      },
+      {
+        "name": "Build",
+        "actions": [
+          {
+            "name": "BuildApp",
+            "actionTypeId": {
+              "category": "Build",
+              "owner": "AWS",
+              "provider": "CodeBuild",
+              "version": "1"
+            },
+            "inputArtifacts": [
+              {
+                "name": "SourceArtifact"
+              }
+            ],
+            "outputArtifacts": [
+              {
+                "name": "BuildArtifact"
+              }
+            ],
+            "configuration": {
+              "ProjectName": "git-devops-portfolio-build"
+            },
+            "runOrder": 1
+          }
+        ]
+      },
+      {
+        "name": "Deploy",
+        "actions": [
+          {
+            "name": "DeployToS3",
+            "actionTypeId": {
+              "category": "Deploy",
+              "owner": "AWS",
+              "provider": "S3",
+              "version": "1"
+            },
+            "inputArtifacts": [
+              {
+                "name": "BuildArtifact"
+              }
+            ],
+            "configuration": {
+              "BucketName": "git-devops-portfolio-manish-2026",
+              "Extract": "true"
+            },
+            "runOrder": 1
+          }
+        ]
+      }
+    ],
+    "version": 1
+  }
+}
